@@ -139,6 +139,4 @@ kubectl -n monitoring get servicemonitors
 kubectl -n monitoring describe servicemonitor node-exporter
 ```
 
-Label selectors are used to map service monitor to kubernetes services. </br>
-
-That is how Prometheus is configured on what to scrape.
+Label selectors are used to map service monitor to kubernetes services.
