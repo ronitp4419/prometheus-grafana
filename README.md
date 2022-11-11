@@ -106,8 +106,16 @@ To do this, edit `manifests/grafana-dashboardDatasources.yaml` and replace the d
 We'll need to patch that and restart Grafana
 
 ```
+# Grab the currently running <grafana-pod-name>
+kubectl -n monitoring get pods
+
+# apply new patch
 kubectl apply -f ./manifests/grafana-dashboardDatasources.yaml
+
+# restart grafana pod by deleting old pod
 kubectl -n monitoring delete po <grafana-pod>
+
+# expose grafana on port number 3000
 kubectl -n monitoring port-forward svc/grafana 3000
 ```
 
