@@ -3,10 +3,16 @@
 
 ## Kubernetes 1.23 Monitoring Guide
 
+
 ##### Install K8S cluster on local system with Kind
 Create a cluster with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
 ```
+# Download kind binary and configure your binary path in Windows Environment Variables
+curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.17.0/kind-windows-amd64
+Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe
+
+# Create K8S cluster with kind.yaml file
 kind create cluster --name monitoring --image kindest/node:v1.23.6 --config kind.yaml
 ```
 
