@@ -1,8 +1,9 @@
 # prometheus-grafana
 ##### Observability with Prometheus and Grafana in K8S
 
-# Kubernetes 1.23 Monitoring Guide
+## Kubernetes 1.23 Monitoring Guide
 
+##### Install K8S cluster on local system with Kind
 Create a cluster with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
 ```
@@ -15,7 +16,7 @@ Test our cluster to see all nodes are healthy and ready:
 kubectl get nodes
 ```
 
-# Kube Prometheus
+## Kube Prometheus
 
 The best method for monitoring, is to use the community manifests on the `kube-prometheus`
 repository [here](https://github.com/prometheus-operator/kube-prometheus)
@@ -62,7 +63,7 @@ Now that we have the source code manifests, we can exit our temporary container
 exit
 ```
 
-# Setup CRDs
+## Setup CRDs
 
 Let's create the CRD's and prometheus operator
 
@@ -70,7 +71,7 @@ Let's create the CRD's and prometheus operator
 kubectl create -f ./manifests/setup/
 ```
 
-# Setup Manifests
+## Setup Manifests
 
 Apply rest of manifests
 
@@ -78,13 +79,13 @@ Apply rest of manifests
 kubectl create -f ./manifests/
 ```
 
-# Check Monitoring
+## Check Monitoring
 
 ```
 kubectl -n monitoring get pods
 ```
 
-# View Dashboards
+## View Dashboards
 
 You can access the dashboards by using `port-forward` to access Grafana.
 It does not have a public endpoint for security reasons
@@ -95,7 +96,7 @@ kubectl -n monitoring port-forward svc/grafana 3000
 
 Then access Grafana on [localhost:3000](http://localhost:3000/)
 
-# Fix Grafana Datasource
+## Fix Grafana Datasource
 
 Now for some reason, the Prometheus data source in Grafana does not work out the box.
 To fix it, we need to change the service endpoint of the data source. </br>
