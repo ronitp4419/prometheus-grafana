@@ -3,15 +3,24 @@
 
 ## Kubernetes 1.23 Monitoring Guide
 
+##### Download and Install Docker for Desktop on your local system
 
-##### Install K8S cluster on local system with Kind
-Create a cluster with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+Create Docker Environment with [Docker for Desktop](https://www.docker.com/products/docker-desktop/)
+
+##### Install kind on your local system
 
 ```
 # Download kind binary and configure your binary path in Windows Environment Variables
+
 curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.17.0/kind-windows-amd64
 Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe
+```
 
+##### Create Kubernetes cluster locally
+
+Create a cluster with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+
+```
 # Create K8S cluster with kind.yaml file
 kind create cluster --name monitoring --image kindest/node:v1.23.6 --config kind.yaml
 ```
